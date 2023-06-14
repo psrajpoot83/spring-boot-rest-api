@@ -3,7 +3,9 @@
 ## Steps to Setup
 
 **1. Clone the application**
+
 https://github.com/psrajpoot83/spring-boot-rest-api.git
+
 **2. Create Mysql database**
 create database user_database
 
@@ -13,7 +15,7 @@ open `src/main/resources/application.properties`
 
 change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
 
-**4. Build and run the app using maven
+**4. Build and run the app using maven**
 
 mvn package or mvn clean install
 java -jar target/spring-boot-rest-api-tutorial-0.0.1-SNAPSHOT.jar or run jar application in IDE
