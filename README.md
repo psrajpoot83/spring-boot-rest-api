@@ -7,6 +7,7 @@
 https://github.com/psrajpoot83/spring-boot-rest-api.git
 
 **2. Create Mysql database**
+
 create database user_database
 
 **3. Change mysql username and password as per your installation**
