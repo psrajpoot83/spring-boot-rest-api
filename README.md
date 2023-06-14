@@ -3,7 +3,7 @@
 ## Steps to Setup
 
 **1. Clone the application**
-
+https://github.com/psrajpoot83/spring-boot-rest-api.git
 **2. Create Mysql database**
 create database user_database
 
