@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-deployment
+spec:
+  serviceName: "db-headless-service"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-db-service
+  template:
+    metadata:
+      labels:
+        app: mysql-db-service
+    spec:
+      containers:
+      - name: mysql-db-service
+        image: mysql:latest
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: mysqldb-secret
+              key: DB_PASSWORD
+        - name: MYSQL_DATABASE
+          value: "user_database"
+        volumeMounts:
+        - name: data-volume
+          mountPath: /var/lib/mysql
+      #volumes:
+      #- name: data-volume
+      #  persistentVolumeClaim:
+      #    claimName: pv-claim
+  volumeClaimTemplates:
+  - metadata:
+      name: data-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
